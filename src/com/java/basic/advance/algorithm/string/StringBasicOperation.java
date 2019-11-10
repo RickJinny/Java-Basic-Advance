@@ -31,6 +31,11 @@ public class StringBasicOperation {
          * 4、字符串与字符的查找
          */
         stringSearchCharMethod();
+
+        /**
+         * 5、字符串的截取与拆分
+         */
+        stringCutAndSplit();
     }
 
     /**
@@ -192,5 +197,40 @@ public class StringBasicOperation {
         int index8 = str.lastIndexOf("my",8); // 查找到索引8以后子字符串"my"最后一次出现位置所在索引
         System.out.println("查找子字符串\"my\"最后一次出现位置的索引号是: "+index7);
         System.out.println("查找到索引8以后子字符串\"my\"最后一次出现位置所在索引是: " + index8);
+    }
+
+    /**
+     * 5、字符串截取与拆分
+     */
+    private static void stringCutAndSplit() {
+        String str = "Hello, my name is string, my name is string, my name is string, my name is string";
+        System.out.println("该字符串是: " + str);
+        int length = str.length();
+        System.out.println("字符串长度是: " + length);
+
+        /**
+         * 1、substring()方法截取出第一个单词和最后一个单词
+         * 用indexOf()和lastIndexOf()方法找到第一个单词和最后一个单词前后空格的索引号;
+         * 第一个单词的左范围索引为0，最后一个单词的右范围索引为 length - 1
+         */
+        int firstIndex = str.indexOf(" "); // 查找第一个空格所在的索引
+        int lastIndex = str.lastIndexOf(" "); // 查找最后一个空格所在的索引
+        System.out.println("第一个空格的索引是：" + firstIndex);
+        System.out.println("最后一个空格的索引是：" + lastIndex);
+
+        // 利用substring()方法根据第一个和最后一个单词的索引范围截取出第一个和最后一个单词
+        String firstWord = str.substring(0, firstIndex); // 截取出第一个单词
+        String lastWord = str.substring(lastIndex + 1, length); // 截取出最后一个单词
+        System.out.println("第一个单词是: " + firstWord);
+        System.out.println("最后一个单词是: " + lastWord);
+
+        /**
+         * 2、split()方法拆分出所有单词
+         */
+        String[] array = str.split(" ");  // 根据空格拆分出所有单词, 保存到字符串数组中
+        System.out.println("拆分之后的各个词汇为: ");
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i] + "\t");
+        }
     }
 }
