@@ -16,6 +16,68 @@ public class StringBasicOperation {
          * 1、字符串的基本操作方法
          */
         stringBasicOperationMethod();
+
+        System.out.println("--------------------------------------------");
+
+        /**
+         * 2、字符串的比较
+         */
+        stringCompareMethod();
+
+    }
+
+    private static void stringCompareMethod() {
+        /**
+         * 字符串比较，可以分为两类：
+         * 第一类：字符串大小的比较，有三种结果：大于、等于、小于。
+         * 第二类：比较两个字符串是否相等，有两种结果：true和false。
+         */
+
+        String str1 = "Hello";
+        String str2 = "hello";
+
+        /**
+         * 第一种比较：字符串大小的比较，有三种结果：大于、等于、小于。
+         * 1、不忽略字符串字符大小写
+         * 2、忽略字符串字符大小写
+         */
+        /* 1、不忽略字符串字符大小写: compareTo方法 */
+        if (str1.compareTo(str2) > 0) {
+            System.out.println(str1 + " > " + str2);
+        } else if (str1.compareTo(str2) == 0) {
+            System.out.println(str1 + " = " + str2);
+        } else {
+            System.out.println(str1 + " < " + str2);
+        }
+
+        /* 2、忽略字符串字符大小写: compareToIgnoreCase */
+        if (str1.compareToIgnoreCase(str2) > 0) {
+            System.out.println(str1 + " > " + str2);
+        } else if (str1.compareToIgnoreCase(str2) == 0) {
+            System.out.println(str1 + " = " + str2);
+        } else {
+            System.out.println(str1 + " < " + str2);
+        }
+
+
+        /**
+         * 第二类：比较两个字符串是否相等，有两种结果：true和false。
+         * 1、不忽略字符串大小写的情况下，判断字符串相等的方法
+         * 2、忽略字符串大小写的情况下，判断字符串相等的方法
+         */
+        /* 1、不忽略字符串大小写的情况下，判断字符串相等的方法: equals()方法 */
+        if (str1.equals(str2)) {
+            System.out.println(str1 + " = " + str2);
+        } else {
+            System.out.println(str1 + " != " + str2);
+        }
+
+        /* 2、忽略字符串大小写的情况下，判断字符串相等的方法: equalsIgnoreCase()方法 */
+        if (str1.equalsIgnoreCase(str2)) {
+            System.out.println(str1 + " = " + str2);
+        } else {
+            System.out.println(str1 + " != " + str2);
+        }
     }
 
     private static void stringBasicOperationMethod() {
