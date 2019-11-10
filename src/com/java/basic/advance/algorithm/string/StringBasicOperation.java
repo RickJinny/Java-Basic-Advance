@@ -24,8 +24,46 @@ public class StringBasicOperation {
          */
         stringCompareMethod();
 
+        System.out.println("--------------------------------------------");
+
+        /**
+         * 3、字符串与其他数据类型之间的转换
+         */
+        stringConvertMethod();
+
+
     }
 
+    /**
+     * 3、字符串与其他数据类型之间的转换
+     */
+    private static void stringConvertMethod() {
+        /**
+         * 第一、将字符串转换为其他类型
+         */
+        int i = Integer.parseInt("100"); // 将字符串转换为整形
+        long l = Long.parseLong("2048"); // 将字符串转换为长整型
+        float f = Float.parseFloat("1.234"); // 将字符串转换为单精度浮点型
+        double d = Double.parseDouble("1.229098"); // 将字符串转换为双精度浮点型
+        boolean b = Boolean.parseBoolean("false"); // 将字符串转换为布尔型
+        byte bt = Byte.parseByte("100"); // 将字符串转换为 byte 类型
+        char ch = "Hello".charAt(1);
+
+        /**
+         * 第二、将其他类型转换为字符串类型
+         */
+        String str1 = String.valueOf(i); 
+        String str2 = String.valueOf(l);
+        String str3 = String.valueOf(f);
+        String str4 = String.valueOf(d);
+        String str5 = String.valueOf(b);
+        String str6 = String.valueOf(bt);
+        String str7 = String.valueOf(ch);
+    }
+
+    /**
+     * 2、字符串的比较
+     */
     private static void stringCompareMethod() {
         /**
          * 字符串比较，可以分为两类：
@@ -80,6 +118,9 @@ public class StringBasicOperation {
         }
     }
 
+    /**
+     * 1、字符串的基本操作方法
+     */
     private static void stringBasicOperationMethod() {
         String myString = "我是一个字符串.";
         System.out.println(myString); // 输入字符串，输出结果是：我是一个字符串
