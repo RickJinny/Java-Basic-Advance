@@ -36,6 +36,11 @@ public class StringBasicOperation {
          * 5、字符串的截取与拆分
          */
         stringCutAndSplit();
+
+        /**
+         * 6、字符串的修改与替换
+         */
+        stringUpdateAndReplace();
     }
 
     /**
@@ -232,5 +237,38 @@ public class StringBasicOperation {
         for (int i = 0; i < array.length; i++) {
             System.out.print(array[i] + "\t");
         }
+    }
+
+    /**
+     * 6、字符串的修改与替换
+     */
+    private static void stringUpdateAndReplace() {
+        String str1 = "hello";
+        String str2 = "hello";
+
+        /**
+         * 第一、concat()方法：合并字符串
+         */
+        String str3 = str1.concat(str2);
+        System.out.println("str1 和 str2 合并后的字符串是: " + str3);
+
+        /**
+         * 第二、toLowerCase()方法：将字符串全部转化为小写
+         */
+        String str4 = str1.toLowerCase();
+        System.out.println("str1的字符全部转换为小写: " + str4);
+
+        /**
+         * 第三、toUpperCase()方法：将字符全部转化为大写
+         */
+        String str5 = str2.toUpperCase();
+        System.out.println("str2的字符全部转换为大写: " + str5);
+
+        /**
+         * 第四、replaceAll()、replaceFirst()方法：需要匹配正则表达式
+         * 实现字符串的替换，原字符串内容不变
+         */
+        String str6 = str1.replaceFirst("ll", "aa");
+        System.out.println("替换后的str1是: " + str6);
     }
 }
