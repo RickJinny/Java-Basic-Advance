@@ -20,8 +20,10 @@ public class Sequence {
     }
 
     public int get() {
-        // 这里只要是一个对象，就可以作为一般锁
-        // 可以使用 this、Integer.valueOf(value)、Sequence.class
+        /**
+         * 这里只要是一个对象，就可以作为一般锁
+         * 可以使用 this、Integer.valueOf(value)、Sequence.class
+         */
         synchronized (Sequence.class) {
             if (value > 0) {
                 return value;
@@ -56,7 +58,7 @@ public class Sequence {
                 }
             }
         }).start();
-        
+
         new Thread(new Runnable() {
             @Override
             public void run() {
