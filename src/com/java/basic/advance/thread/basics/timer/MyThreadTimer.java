@@ -1,4 +1,4 @@
-package com.java.basic.advance.thread.timer;
+package com.java.basic.advance.thread.basics.timer;
 
 import java.util.Timer;
 import java.util.TimerTask;

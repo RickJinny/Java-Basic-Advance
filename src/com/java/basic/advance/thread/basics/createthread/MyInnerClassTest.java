@@ -1,4 +1,4 @@
-package com.java.basic.advance.thread.basics;
+package com.java.basic.advance.thread.basics.createthread;
 
 /**
  * 使用匿名内部类的方式创建线程

@@ -1,4 +1,4 @@
-package com.java.basic.advance.thread.lambda;
+package com.java.basic.advance.thread.basics.lambda;
 
 import java.util.Arrays;
 import java.util.List;

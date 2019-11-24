@@ -1,4 +1,4 @@
-package com.java.basic.advance.thread.threadstatus;
+package com.java.basic.advance.thread.basics.threadstatus;
 
 public class ThreadA implements Runnable {
 

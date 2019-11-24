@@ -1,10 +1,10 @@
-package com.java.basic.advance.thread.basics;
+package com.java.basic.advance.thread.basics.createthread;
 
-public class MyRunnable implements Runnable{
+public class MyThread extends Thread {
 
     private String name;
 
-    public MyRunnable(String name) {
+    public MyThread(String name) {
         this.name = name;
     }
 
