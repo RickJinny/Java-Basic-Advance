@@ -5,7 +5,7 @@ import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 
 /**
- *
+ * 重入锁
  */
 public class MyLock implements Lock {
 
