@@ -7,7 +7,7 @@ import java.util.concurrent.locks.Lock;
 
 public class MyLock implements Lock {
 
-    private AsyncHelper asyncHelper;
+    private AsyncHelper asyncHelper = new AsyncHelper();
 
     /**
      * 将子类定义为非公共内部帮助器类，可用它来实现其封闭类的同步属性。
@@ -18,20 +18,34 @@ public class MyLock implements Lock {
         @Override
         protected boolean tryAcquire(int arg) {
             // 如果第一个线程进来，可以拿到锁，因此我们可以返回true
-
             // 如果第二个线程进来，拿不到锁，返回false
-
             // 如何判断是第一个线程，还是第二线程进来
-
-
-            return super.tryAcquire(arg);
+            int state = getState();
+            if (state == 0) {
+                if (compareAndSetState(0, arg)) {
+                    // 把当前的线程set进来
+                    setExclusiveOwnerThread(Thread.currentThread());
+                    return true;
+                }
+            }
+            return false;
         }
 
         @Override
         protected boolean tryRelease(int arg) {
+            // 锁的获取和释放肯定是一一对应的，那么调用此方法的线程一定是当前线程
+            if (Thread.currentThread() != getExclusiveOwnerThread()) {
+                throw new RuntimeException();
+            }
 
-
-            return super.tryRelease(arg);
+            int state = getState() - arg;
+            boolean flag = false;
+            if (state == 0) {
+                setExclusiveOwnerThread(null);
+                flag = true;
+            }
+            setState(state);
+            return flag;
         }
 
         Condition newCondition() {
