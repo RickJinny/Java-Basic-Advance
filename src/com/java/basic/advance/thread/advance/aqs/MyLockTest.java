@@ -37,6 +37,7 @@ public class MyLockTest {
 //            while (true) {
 //                System.out.println(Thread.currentThread().getId() + " " + myLockTest.next());
 //            }
+            // 测试重入锁的情况
             myLockTest.aa();
         }).start();
 
