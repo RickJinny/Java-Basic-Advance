@@ -18,15 +18,19 @@ public class MyLock implements Lock {
         @Override
         protected boolean tryAcquire(int arg) {
             // 如果第一个线程进来，可以拿到锁，因此我们可以返回true
-            // 如果第二个线程进来，拿不到锁，返回false
+            // 如果第二个线程进来，则拿不到锁，返回false。有一种特例，如果当前进来的线程和当前保存的线程是同一个线程，则可以拿到锁，但是有代价，要更新状态值
             // 如何判断是第一个线程，还是第二线程进来
             int state = getState();
+            Thread thread = Thread.currentThread();
             if (state == 0) {
                 if (compareAndSetState(0, arg)) {
                     // 把当前的线程set进来
                     setExclusiveOwnerThread(Thread.currentThread());
                     return true;
                 }
+            } else if (getExclusiveOwnerThread() == thread) {
+                setState(state + 1);
+                return true;
             }
             return false;
         }

@@ -18,24 +18,38 @@ public class MyLockTest {
         }
     }
 
+    public void aa() {
+        myLock.lock();
+        System.out.println("aa");
+        bb();
+        myLock.unlock();
+    }
+
+    public void bb() {
+        myLock.lock();
+        System.out.println("bb");
+        myLock.unlock();
+    }
+
     public static void main(String[] args) {
         MyLockTest myLockTest = new MyLockTest();
         new Thread(() -> {
-            while (true) {
-                System.out.println(Thread.currentThread().getId() + " " + myLockTest.next());
-            }
+//            while (true) {
+//                System.out.println(Thread.currentThread().getId() + " " + myLockTest.next());
+//            }
+            myLockTest.aa();
         }).start();
 
-        new Thread(() -> {
-            while (true) {
-                System.out.println(Thread.currentThread().getId() + " " + myLockTest.next());
-            }
-        }).start();
-
-        new Thread(() -> {
-            while (true) {
-                System.out.println(Thread.currentThread().getId() + " " + myLockTest.next());
-            }
-        }).start();
+//        new Thread(() -> {
+//            while (true) {
+//                System.out.println(Thread.currentThread().getId() + " " + myLockTest.next());
+//            }
+//        }).start();
+//
+//        new Thread(() -> {
+//            while (true) {
+//                System.out.println(Thread.currentThread().getId() + " " + myLockTest.next());
+//            }
+//        }).start();
     }
 }
