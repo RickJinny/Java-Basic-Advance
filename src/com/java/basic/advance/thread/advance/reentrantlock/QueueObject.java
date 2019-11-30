@@ -5,7 +5,7 @@ public class QueueObject {
     private boolean isNotified = false;
 
     /**
-     * 等待方法
+     * 等待方法：只要没有被叫醒，就一直等待。
      * @throws InterruptedException
      */
     public synchronized void doWait() throws InterruptedException {
