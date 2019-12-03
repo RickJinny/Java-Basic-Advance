@@ -1,4 +1,4 @@
-package com.java.basic.advance.thread.advance.future;
+package com.java.basic.advance.thread.advance.future.design;
 
 public class Product {
 
