@@ -10,8 +10,5 @@ public class ConcurrentLinkQueueDemo {
     public static void main(String[] args) {
         // 创建一个 ConcurrentLinkedQueue 对象
         ConcurrentLinkedQueue<String> concurrentLinkedQueue = new ConcurrentLinkedQueue<>();
-        
-
-
     }
 }
