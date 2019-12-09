@@ -1,5 +1,9 @@
 package com.java.basic.advance.thread.advance.condition;
 
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
 /**
  * Condition的使用
  */
@@ -7,43 +11,56 @@ public class ConditionDemo {
 
     private int signal;
 
+    Lock lock = new ReentrantLock();
+    Condition conditionA = lock.newCondition();
+    Condition conditionB = lock.newCondition();
+    Condition conditionC = lock.newCondition();
+
     public synchronized void aa() {
+        lock.lock();
         while (signal != 0) {
             try {
-                wait();
-            } catch (Exception e) {
+                // 将A进入等待
+                conditionA.await();
+            } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
         System.out.println("aa");
         signal++;
-        notifyAll();
+        // 叫醒B
+        conditionB.signal();
+        lock.unlock();
     }
 
-    public synchronized void bb() {
+    public void bb() {
+        lock.lock();
         while (signal != 1) {
             try {
-                wait();
+                conditionB.await();
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
         System.out.println("bb");
         signal++;
-        notifyAll();
+        conditionC.signal();
+        lock.unlock();
     }
 
-    public synchronized void cc() {
+    public void cc() {
+        lock.lock();
         while (signal != 2) {
             try {
-                wait();
+                conditionC.await();
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
         System.out.println("cc");
         signal = 0;
-        notifyAll();
+        conditionA.signal();
+        lock.unlock();
     }
 
     public static void main(String[] args) {
