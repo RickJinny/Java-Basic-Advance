@@ -19,7 +19,7 @@ public class Mall {
         System.out.println(Thread.currentThread().getName() + " 生产者生产，当前库存为: " + count);
     }
 
-    public void take() {
+    public synchronized void take() {
         while (count <= 0) {
             try {
                 System.out.println(Thread.currentThread().getName() + " 库存数量为零，消费者等待。");
