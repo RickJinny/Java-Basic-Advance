@@ -43,6 +43,7 @@ public class MyQueue<E> {
         lock.lock();
         while (queueSize == 0) {
             try {
+                System.out.println(Thread.currentThread().getName() + "队列为空, 不进行移除");
                 removeCondition.await();
             } catch (InterruptedException e) {
                 e.printStackTrace();
