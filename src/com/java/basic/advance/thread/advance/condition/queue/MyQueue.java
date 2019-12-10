@@ -34,6 +34,7 @@ public class MyQueue<E> {
             addIndex = 0;
         }
         queueSize++;
+        removeCondition.signal();
         // 释放锁
         lock.unlock();
     }
