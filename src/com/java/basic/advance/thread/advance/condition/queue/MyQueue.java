@@ -29,6 +29,10 @@ public class MyQueue<E> {
             }
         }
         obj[addIndex++] = e;
+
+        if (++addIndex == obj.length - 1) {
+            addIndex = 0;
+        }
         queueSize++;
         // 释放锁
         lock.unlock();
