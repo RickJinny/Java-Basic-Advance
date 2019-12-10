@@ -40,7 +40,21 @@ public class MyQueue<E> {
     }
 
     public void remove() {
-        obj[removeIndex++] = null;
+        lock.lock();
+        while (queueSize == 0) {
+            try {
+                removeCondition.await();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
+        obj[removeIndex] = null;
+        if (++removeIndex == obj.length) {
+            removeIndex = 0;
+        }
         queueSize--;
+        addCondition.signal();
+        lock.unlock();
     }
 }
