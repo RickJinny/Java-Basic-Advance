@@ -5,7 +5,7 @@ import java.util.concurrent.LinkedBlockingDeque;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
-public class ExecutorDemo {
+public class ThreadPoolExecutorDemo {
 
     public static void main(String[] args) {
 
