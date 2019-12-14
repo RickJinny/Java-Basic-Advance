@@ -12,7 +12,7 @@ public class VolatileDemo {
     }
 
     public void reader() {
-        if (flag) { // 3
+        if (flag) { // 3 当读一个volatile变量时，Java内存模型会把当前线程对应的本地内存中的共享变量设置为无效，然后从主内存中读取共享变量。
             int b = a + 1; // 4
             System.out.println(b); //5
         }
