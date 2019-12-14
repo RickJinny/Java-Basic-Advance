@@ -1,4 +1,4 @@
-package com.java.basic.advance.thread.jdk8.longaddr;
+package com.java.basic.advance.thread.advance.jdk8.longaddr;
 
 import java.util.concurrent.atomic.LongAdder;
 

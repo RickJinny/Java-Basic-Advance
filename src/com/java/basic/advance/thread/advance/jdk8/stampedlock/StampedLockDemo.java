@@ -1,4 +1,4 @@
-package com.java.basic.advance.thread.jdk8.stampedlock;
+package com.java.basic.advance.thread.advance.jdk8.stampedlock;
 
 import java.util.concurrent.locks.StampedLock;
 
