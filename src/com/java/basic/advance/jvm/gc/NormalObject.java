@@ -1,7 +1,7 @@
 package com.java.basic.advance.jvm.gc;
 
 public class NormalObject {
-    
+
     public String name;
 
     public NormalObject(String name) {
